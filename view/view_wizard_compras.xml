@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_compras_view_tree" model="ir.ui.view">
+        <field name="name">wizard.compras.view.tree</field>
+        <field name="model">wizard.compras</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="purchase_id"></field>
+                <field name="partner_id"></field>
+                <field name="user_id"></field>
+                <field name="date_approve"></field>
+                <field name="state"></field>
+                <field name="amount_total"></field>
+                <button string="ver detalles" name="action_view_compra" type="object" class="oe_highlight"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

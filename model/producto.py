@@ -1,0 +1,30 @@
+from odoo import models, api, fields, _
+from odoo.exceptions import UserError
+
+
+
+class Producto (models.Model):
+    _inherit = "product.template"
+    _description = "Template de producto"
+
+
+    def view_wizard_purchase(self):
+        purchases = self.env["purchase.order"].search([
+            ("order_line.product_id.product_tmpl_id", "=", self.id)
+        ])
+        lines = []
+        for po in purchases:
+            rec = self.env["wizard.compras"].create({
+                "product_id": self.id,
+                "purchase_id": po.id,
+            })
+            lines.append(rec.id)
+
+        return {
+            "name": "Información de compras",
+            "type": "ir.actions.act_window",
+            "res_model": "wizard.compras",
+            "view_mode": "tree,form",
+            "target": "new",
+            "domain": [("id", "in", lines)],
+        }
