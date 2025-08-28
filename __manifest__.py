@@ -13,6 +13,7 @@
         'security/ir.model.access.csv',
         'view/view_kanban_product.xml',
         "view/view_wizard_compras.xml",
+        "view/view_form_sale_inherit.xml",
     ],
     'auto_install': False,
     'application': False,
