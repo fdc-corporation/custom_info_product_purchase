@@ -21,7 +21,7 @@ class Producto (models.Model):
             lines.append(rec.id)
 
         return {
-            "name": f"Información de {self.default_code}",
+            "name": f"Información de compra {self.default_code}",
             "type": "ir.actions.act_window",
             "res_model": "wizard.compras",
             "view_mode": "tree,form",
